@@ -11,17 +11,20 @@ public class CarreraAutos {
     static Scanner scanner = new Scanner(System.in);
     static Random rand = new Random();
     static ValidacionTipo valT = new ValidacionTipo();
-    static final String ANSI_RED = "\u001B[31m";
+    static final String ANSI_YELLOW = "\u001B[33m";
     static final String ANSI_BLUE = "\u001B[34m";
     static final String reset = "\u001B[0m";
     public static List<Auto> crearAutos() {
         List<Auto> autos = new ArrayList<>();
         int numAutos = Integer.parseInt(valT.pedirEntradaNumeros(scanner));
+        String C_Azul = "\uD83D\uDE98";
+        String C_Amarillo = "\uD83D\uDE96";
 
         for (int i = 0; i < numAutos; i++) {
             String nombre = valT.pedirEntradaTexto(scanner, i);
-            String color = (i == 0) ? ANSI_RED : ANSI_BLUE;
-            autos.add(new Auto(nombre, color));
+            String color = (i == 0) ? ANSI_BLUE : ANSI_YELLOW;
+            String tipoCarro = (i == 0) ? C_Azul : C_Amarillo;
+            autos.add(new Auto(nombre, color, tipoCarro));
         }
         return autos;
     }
@@ -72,7 +75,10 @@ public class CarreraAutos {
         }
 
         if (pista[auto.posicion].equals("&")) {
-            System.out.println(reset + "¡Choque para el auto " + auto.nombre + "!");
+            String choque = "\uD83D\uDCA5";
+            System.out.print(choque.toCharArray());
+            System.out.print(reset + "¡Choque para el auto " + auto.nombre + "!");
+            System.out.println(choque.toCharArray());
             auto.posicion -= avance;
         }
         System.out.println(auto.color + auto.nombre + " se ha desplazado en " + auto.posicion + " movimientos, y" +
@@ -90,7 +96,7 @@ public class CarreraAutos {
                 boolean autoPresente = false;
                 for (Auto auto : autos) {
                     if (auto.posicion == i) {
-                        System.out.print(auto.color + auto.nombre.charAt(0) + reset);
+                        System.out.print(auto.tipoCoche.toCharArray());
                         autoPresente = true;
                         break;
                     }
@@ -100,6 +106,7 @@ public class CarreraAutos {
                 }
             }
         }
+        System.out.println("🏁");
         System.out.println();
     }
 

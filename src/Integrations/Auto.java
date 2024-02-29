@@ -6,11 +6,13 @@ public class Auto
     public int posicion;
     public int avance;
     public String color;
+    public String tipoCoche;
 
-    public Auto(String nombre, String color) {
+    public Auto(String nombre, String color, String tipoCoche) {
         this.nombre =  nombre;
         this.posicion = 0;
         this.color = color;
         this.avance = 0;
+        this.tipoCoche = tipoCoche;
     }
 }

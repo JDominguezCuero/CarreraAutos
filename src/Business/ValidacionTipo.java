@@ -38,7 +38,8 @@ public class ValidacionTipo {
             entrada = scanner.nextLine();
             try {
                 if (!esSoloTexto(entrada)) {
-                    throw new IllegalArgumentException("La entrada contiene caracteres no válidos.");
+                    throw new IllegalArgumentException("La entrada contiene caracteres no válidos. " +
+                            "Solo se permiten letras.");
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -55,7 +56,8 @@ public class ValidacionTipo {
             entrada = scanner.nextLine();
             try {
                 if (!esSoloNumeros(entrada)) {
-                    throw new IllegalArgumentException("La entrada contiene caracteres no válidos.");
+                    throw new IllegalArgumentException("La entrada contiene caracteres no válidos. " +
+                            "Solo se permiten números enteros.");
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -71,7 +73,8 @@ public class ValidacionTipo {
             entrada = scanner.nextLine();
             try {
                 if (!esSoloNumeros(entrada)) {
-                    throw new IllegalArgumentException("La entrada contiene caracteres no válidos.");
+                    throw new IllegalArgumentException("La entrada contiene caracteres no válidos. " +
+                            "Solo se permiten números enteros del 1 al 30.");
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
