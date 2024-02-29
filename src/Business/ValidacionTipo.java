@@ -27,7 +27,7 @@ public class ValidacionTipo {
 
     // Método para validar si una cadena contiene solo números
     public boolean esSoloNumeros(String texto) {
-        return texto.matches("[0-30]+");
+        return texto.matches("^(?:[0-9]|[1-2][0-9]|30)$");
     }
 
     // Método para pedir una entrada de texto y manejar excepciones

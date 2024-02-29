@@ -49,14 +49,17 @@ public class CarreraAutos {
         boolean carreraFinalizada = false;
         while (!carreraFinalizada) {
             for (Auto auto : autos) {
-                avanzarAuto(auto, pista);
+                carreraFinalizada = avanzarAuto(auto, pista);
+                if (carreraFinalizada) {
+                    break;
+                }
             }
             imprimirPista(autos, pista);
             pausaCarrera();
         }
     }
 
-    public static void avanzarAuto(Auto auto, String[] pista) {
+    public static boolean avanzarAuto(Auto auto, String[] pista) {
         boolean carreraFinalizada = false;
 
         int avance = rand.nextInt(3) + 1;
@@ -65,7 +68,7 @@ public class CarreraAutos {
 
         if (auto.posicion >= pista.length) {
             auto.posicion = pista.length - 1;
-            carreraFinalizada = true;
+            return true;
         }
 
         if (pista[auto.posicion].equals("&")) {
@@ -74,12 +77,15 @@ public class CarreraAutos {
         }
         System.out.println(auto.color + auto.nombre + " se ha desplazado en " + auto.posicion + " movimientos, y" +
                 " avanzará " + auto.avance + " posiciones." + reset);
+
+        return false;
     }
 
     public static void imprimirPista(List<Auto> autos, String[] pista) {
         for (int i = 0; i < pista.length; i++) {
             if (pista[i].equals("&")) {
-                System.out.print("&");
+                String obst = "\uD83C\uDF32";
+                System.out.print(obst.toCharArray());
             } else {
                 boolean autoPresente = false;
                 for (Auto auto : autos) {
@@ -103,7 +109,6 @@ public class CarreraAutos {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        limpiarPantalla();
     }
 
     public static void limpiarPantalla() {
