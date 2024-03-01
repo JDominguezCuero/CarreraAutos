@@ -1,9 +1,9 @@
-Este programa en Java simula una carrera de carros de forma gráfica utilizando caracteres, representando una bandera en la parte izquierda de la consola. Los carros avanzan automáticamente por turnos, y cada segundo se realiza una acción.
+Este programa en Java simula una carrera de carros de forma gráfica utilizando caracteres, representando una bandera en la parte derecha de la consola. Los carros avanzan automáticamente por turnos, y cada segundo se realiza una acción.
 
 Si un carro finaliza en la posición de un árbol, se muestra la palabra "Choque". Durante cada turno, se imprime la lista de carros y los movimientos realizados.
 
 La carrera avanza de manera aleatoria entre 1 y 3 posiciones máximo utilizando la clase Random. Se utiliza try-catch para manejar excepciones, así como instrucciones if-else para controlar el flujo del programa.
 
-Al finalizar la carrera, se muestra el carro ganador o si hay un empate entre los carros.
+Al finalizar la carrera, se muestra el carro ganador.
 
 Este programa combina la simulación de una carrera de carros con manejo de excepciones, lógica de control de flujo y generación aleatoria de movimientos, ofreciendo una experiencia interactiva y visual dentro de la consola de Java.
